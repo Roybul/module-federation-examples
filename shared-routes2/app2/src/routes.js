@@ -1,4 +1,6 @@
-import AboutPage from "./AboutPage";
+import React from "react";
+
+const AboutPage = React.lazy(() => import("./AboutPage"));
 
 const routes = [
   {
