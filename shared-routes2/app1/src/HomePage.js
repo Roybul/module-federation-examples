@@ -2,8 +2,7 @@ import React from "react";
 
 const style = {
   height: 400,
-  backgroundImage: "url(https://i.picsum.photos/id/324/1920/1080.jpg)",
-  backgroundSize: "cover",
+  backgroundColor: "#673ab7",
   color: "white",
   textShadow: "0 0 3px #000, 0 0 6px #000",
   padding: 12
