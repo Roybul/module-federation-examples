@@ -4,7 +4,6 @@ const style = {
   height: 400,
   backgroundColor: "#3f51b5",
   color: "white",
-  textShadow: "0 0 3px #000, 0 0 6px #000",
   padding: 12
 };
 
