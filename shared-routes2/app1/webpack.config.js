@@ -28,8 +28,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "app1",
       library: { type: "var", name: "app1" },
-      remotes: {
-        app2: "app2"
+      filename: "remoteEntry.js",
+      exposes: {
+        routes: "./src/routes"
       },
       shared: ["react", "react-dom"]
     }),

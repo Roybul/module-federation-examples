@@ -30,7 +30,7 @@ module.exports = {
       library: { type: "var", name: "app2" },
       filename: "remoteEntry.js",
       exposes: {
-        Button: "./src/Button"
+        routes: "./src/routes"
       },
       shared: ["react", "react-dom"]
     }),
