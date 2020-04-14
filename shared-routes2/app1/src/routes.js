@@ -1,6 +1,11 @@
+import HomePage from "./HomePage";
+
 const routes = [
   {
-    path: "/home",
-    component: HomePage
+    path: "/",
+    component: HomePage,
+    exact: true
   }
 ];
+
+export default routes;

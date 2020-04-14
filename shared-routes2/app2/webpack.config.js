@@ -29,10 +29,13 @@ module.exports = {
       name: "app2",
       library: { type: "var", name: "app2" },
       filename: "remoteEntry.js",
+      remotes: {
+        app1: "app1"
+      },
       exposes: {
         routes: "./src/routes"
       },
-      shared: ["react", "react-dom"]
+      shared: ["react", "react-dom", "react-router-dom"]
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html"

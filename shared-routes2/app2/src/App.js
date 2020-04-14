@@ -1,12 +1,24 @@
-import LocalButton from "./Button";
+import { HashRouter, Route, Switch } from "react-router-dom";
+
 import React from "react";
+import localRoutes from "./routes";
 
 const App = () => (
-  <div>
-    <h1>Basic Host-Remote</h1>
-    <h2>App 2</h2>
-    <LocalButton />
-  </div>
+  <HashRouter>
+    <div>
+      <h1>App 2</h1>
+      <Switch>
+        {localRoutes.map(route => (
+          <Route
+            key={route.path}
+            path={route.path}
+            component={route.component}
+            exact={route.exact}
+          />
+        ))}
+      </Switch>
+    </div>
+  </HashRouter>
 );
 
 export default App;

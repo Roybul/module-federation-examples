@@ -1,15 +1,29 @@
-import React from "react";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
-const RemoteButton = React.lazy(() => import("app2/Button"));
+import Navigation from "./Navigation";
+import React from "react";
+import localRoutes from "./routes";
+import remoteRoutes from "app2/routes";
+
+const routes = [...localRoutes, ...remoteRoutes];
 
 const App = () => (
-  <div>
-    <h1>Basic Host-Remote</h1>
-    <h2>App 1</h2>
-    <React.Suspense fallback="Loading Button">
-      <RemoteButton />
-    </React.Suspense>
-  </div>
+  <HashRouter>
+    <div>
+      <h1>App 1</h1>
+      <Navigation />
+      <Switch>
+        {routes.map(route => (
+          <Route
+            key={route.path}
+            path={route.path}
+            component={route.component}
+            exact={route.exact}
+          />
+        ))}
+      </Switch>
+    </div>
+  </HashRouter>
 );
 
 export default App;
