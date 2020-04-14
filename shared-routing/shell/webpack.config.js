@@ -35,7 +35,7 @@ module.exports = {
       remotes: {
         order: "order",
         dashboard: "dashboard",
-        profile: 'profile'
+        profile: 'profile',
       },
       exposes: {
         Shell: "./src/Shell",
@@ -47,7 +47,9 @@ module.exports = {
         "@material-ui/core",
         "@material-ui/icons",
         "react-router",
-        "react-router-dom"
+        "react-router-dom",
+        // workaround to ensure code is provided before booting app
+        './src/Service'
       ]
     }),
     new HtmlWebpackPlugin({
