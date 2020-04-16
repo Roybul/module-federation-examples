@@ -21,5 +21,9 @@
   "devDependencies": {
     "lerna": "^3.16.4",
     "prettier": "2.0.4"
+  },
+  "scripts": {
+    "prettier": "prettier --write \"**/*.{js,json,md,ts,tsx}\"",
+    "prettier:check": "prettier --list-different \"**/*.{js,json,md,ts,tsx}\""
   }
 }
