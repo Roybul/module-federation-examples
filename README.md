@@ -15,6 +15,7 @@ This repository is to showcase examples on Webpack 5's new Module Federation can
 - [x] [Multi UI Framework Federation](./comprehensive-demo/README.md) &mdash; Multiple Apps in different technologies federated.
 - [x] [Dynamic System Host](./dynamic-system-host/README.md) &mdash; Swap between remotes at runtime.
 - [x] [Redux Reducer Injection](./redux-reducer-injection.md) &mdash; Dynamically inject reducers to host store at runtime.
+- [x] [Shared Routes](./shared-routes2) &mdash; Compose federated routes for a seamless user experience.
 - [ ] Nested Interleaved Components
 - [x] Share State/Context Providers
 - [ ] Non-UI Module
