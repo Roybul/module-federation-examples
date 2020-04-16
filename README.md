@@ -13,6 +13,7 @@ This repository is to showcase examples on Webpack 5's new Module Federation can
 - [x] [Self-Healing](./self-healing/README.md) &mdash; Fallback to remote apps vendors if a dependency fails to load.
 - [x] ⚠️ [Server-Side Rendering](./server-side-rendering/README.md) &mdash; App1 and App2 with SSR.
 - [x] [Multi UI Framework Federation](./comprehensive-demo/README.md) &mdash; Multiple Apps in different technologies federated.
+- [x] [Dynamic System Host](./dynamic-system-host/README.md) &mdash; Swap between remotes at runtime.
 - [ ] Nested Interleaved Components
 - [x] Share State/Context Providers
 - [ ] Non-UI Module
