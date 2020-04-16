@@ -19,8 +19,10 @@
     "redux-reducer-injection/*"
   ],
   "devDependencies": {
+    "husky": "^4.2.5",
     "lerna": "^3.16.4",
-    "prettier": "2.0.4"
+    "prettier": "2.0.4",
+    "pretty-quick": "^2.0.1"
   },
   "scripts": {
     "prettier": "prettier --write \"**/*.{js,json,md,ts,tsx}\"",
