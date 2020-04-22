@@ -19,8 +19,7 @@ function nameResolution(resolutor) {
   Module._resolveFilename = function (request, _parent) {
     const match = enabled && resolutor(request, _parent);
     if (match) {
-      const modifiedArguments = [match].concat([].slice.call(arguments, 1)); // Passes all arguments. Even those that is not specified above.
-      return originalResolveFilename.apply(this, modifiedArguments);
+      return match;
     }
 
     return originalResolveFilename.apply(this, arguments);
@@ -49,7 +48,6 @@ function requireFromString(code, filename, opts) {
   const paths = Module._nodeModulePaths(path.dirname(filename));
 
   const { parent } = module;
-  nameResolution((requireName, parent) => filename);
 
   const m = new Module(filename, parent);
 
@@ -74,6 +72,20 @@ const server = new S3rver({
   silent: false,
   directory: "./bucket-resources",
   configureBuckets: buckets,
+});
+
+nameResolution((requireName, parent) => {
+  const whatDidIRequire = path.resolve(path.dirname(parent.id), requireName);
+  // if something is found in the cache
+  // - just return it without checking the real FS
+
+  if (require.cache[whatDidIRequire]) {
+    return whatDidIRequire;
+  }
+  const andWithJS = whatDidIRequire + ".js";
+  if (require.cache[andWithJS]) {
+    return andWithJS;
+  }
 });
 
 const initializeS3 = async () => {
