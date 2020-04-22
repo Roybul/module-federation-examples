@@ -33,14 +33,14 @@ function requireFromString(code, filename, opts) {
   const m = new Module(filename, parent);
   m.filename = filename;
   m.paths = [].concat(opts.prependPaths).concat(paths).concat(opts.appendPaths);
+  require.cache[m.id] = m;
   m._compile(code, filename);
 
   const { exports } = m;
   parent &&
     parent.children &&
     parent.children.splice(parent.children.indexOf(m), 1);
-  m.loaded = true;
-  require.cache[m.id] = m;
+  m.loaded = true; // added this, dont know if i need it
 
   return exports;
 }
