@@ -53,7 +53,7 @@ function requireFromString(code, filename, opts) {
 
   m.filename = filename;
   m.paths = [].concat(opts.prependPaths).concat(paths).concat(opts.appendPaths);
-  require.cache[m.id] = m;
+  __non_webpack_require__.cache[m.id] = m;
   console.log("33333", JSON.stringify(m.id));
   m._compile(code, filename);
 
@@ -79,11 +79,11 @@ nameResolution((requireName, parent) => {
   // if something is found in the cache
   // - just return it without checking the real FS
 
-  if (require.cache[whatDidIRequire]) {
+  if (__non_webpack_require__.cache[whatDidIRequire]) {
     return whatDidIRequire;
   }
-  const andWithJS = whatDidIRequire + ".js";
-  if (require.cache[andWithJS]) {
+  const andWithJS = `${whatDidIRequire}.js`;
+  if (__non_webpack_require__.cache[andWithJS]) {
     return andWithJS;
   }
 });
@@ -127,7 +127,7 @@ const initializeS3 = async () => {
   });
 
   console.log(readableModule);
-  console.log(require.cache[require("path").resolve("./federatedFile.js")]);
+  // console.log(require.cache[require('path').resolve('./federatedFile.js')])
   console.log(require("./federatedFile.js"));
 };
 
